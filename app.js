@@ -6,6 +6,10 @@ const app=express();
 const cors=require('cors');
 app.use(cors());
 const bodyParser = require('body-parser');
+const multer = require('multer');
+
+// Set up multer to handle the file upload
+const upload = multer({ dest: 'uploads/' }); // Change 'uploads/' to the desired folder where you want to store uploaded files
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
