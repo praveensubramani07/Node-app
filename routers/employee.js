@@ -38,7 +38,7 @@ router.delete("/employees/:id", async (req, res) => {
     }
 
     // Find the employee by ID and delete it
-    const deletedEmployee = await Employee.findByIdAndDelete(id);
+    const deletedEmployee = await employee.findByIdAndDelete(id);
 
     if (deletedEmployee) {
       return res.json({ message: "Employee deleted successfully." });
