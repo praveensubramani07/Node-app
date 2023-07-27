@@ -37,7 +37,7 @@ app.get('/employee',employee);
 app.post('/employee',employee);
 app.get('/employee/:id',employee);
 app.delete('/employee/:id', employee);
-app.post('/uploads', employee);
+app.post('/upload', employee);
 
 //port
 const port=3000;
