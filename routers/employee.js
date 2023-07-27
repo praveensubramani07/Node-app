@@ -28,7 +28,7 @@ router.get('/employee/:id', async (req, res) => {
   });
 
 
-router.delete("/employees/:id", async (req, res) => {
+router.delete("/employee/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
