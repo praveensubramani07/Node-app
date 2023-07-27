@@ -26,7 +26,29 @@ router.get('/employee/:id', async (req, res) => {
       console.log(err);
     }
   });
-  
+
+
+router.delete("/employees/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    // Check if the provided ID is a valid MongoDB ObjectID
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: "Invalid employee ID." });
+    }
+
+    // Find the employee by ID and delete it
+    const deletedEmployee = await Employee.findByIdAndDelete(id);
+
+    if (deletedEmployee) {
+      return res.json({ message: "Employee deleted successfully." });
+    } else {
+      return res.status(404).json({ error: "Employee not found." });
+    }
+  } catch (err) {
+    return res.status(500).json({ error: "Internal server error." });
+  }
+});
   
 router.post('/employee',async(req,res)=>{
     const employe=new employee({
