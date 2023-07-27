@@ -60,6 +60,19 @@ router.post('/employee',async(req,res)=>{
     }
 });
 
+router.post('/upload', upload.single('image'), (req, res) => {
+  // 'req.file' contains the information about the uploaded file
+  if (!req.file) {
+    return res.status(400).send('No file uploaded.');
+  }
+
+  // You can access the uploaded file properties via 'req.file', e.g., req.file.filename, req.file.originalname, etc.
+
+  // Process the uploaded image (e.g., save to database, resize, etc.)
+  // For demonstration purposes, we'll just send a response with the uploaded file details
+  res.send(`File uploaded: ${req.file.filename}`);
+});
+
 
 
 module.exports=router;
