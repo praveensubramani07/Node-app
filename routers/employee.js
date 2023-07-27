@@ -28,16 +28,11 @@ router.get('/employee/:id', async (req, res) => {
   });
 
 
-router.delete("/employee/:id", async (req, res) => {
-  const { id } = req.params;
-
+router.delete("/employee/:id", async (req, res) => { 
   try {
-    // Check if the provided ID is a valid MongoDB ObjectID
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({ error: "Invalid employee ID." });
-    }
+      const { id } = req.params;
 
-    // Find the employee by ID and delete it
+      // Find the employee by ID and delete it
     const deletedEmployee = await employee.findByIdAndDelete(id);
 
     if (deletedEmployee) {
