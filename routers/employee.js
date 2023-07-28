@@ -2,6 +2,10 @@ const express=require('express');
 const router=express.Router();
 const employee=require('../schema/employee');
 
+const multer = require('multer');
+
+// Set up multer to handle the file upload
+const upload = multer({ dest: 'uploads/' }); // Change 'uploads/' to the desired folder where you want to store uploaded files
 
 
 router.get('/employee',async(req,res)=>{
